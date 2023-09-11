@@ -2,8 +2,9 @@
 
 Setup Environment Steps:
 
-1. Clone repo on amazon-linux-2 OS
-2. Navigate to setup directory
-3. sudo su
-4. chmod 700 env-setup.sh
-5. ./env-setup.sh
+1. ssh to amazon-linux-2 EC2
+2. wget https://github.com/autopilot-devops/ansible-hands-on/blob/main/setup/env-setup.sh
+3. Navigate to setup directory
+4. sudo su
+5. chmod 700 env-setup.sh
+6. ./env-setup.sh
