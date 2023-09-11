@@ -50,6 +50,7 @@ sudo docker run -itd --name container2 autopilotdevops/ansible
 
 sudo docker run -itd --name container3 autopilotdevops/ansible
 
+sudo systemctl enable docker
 
 
 count=1
