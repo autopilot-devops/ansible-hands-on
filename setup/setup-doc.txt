@@ -1,0 +1,9 @@
+#ansible-hands-on
+#Setup Environment Steps for amazon linux os:
+
+sudo su
+yum install git
+git clone https://github.com/autopilot-devops/ansible-hands-on.git
+Navigate to setup directory
+chmod 700 env-setup.sh
+./env-setup.sh
