@@ -44,11 +44,15 @@ fi
 
 sudo docker pull autopilotdevops/ansible
 
-sudo docker run -itd --name container1 autopilotdevops/ansible
+sudo docker run -itd --name webserver1 autopilotdevops/ansible
 
-sudo docker run -itd --name container2 autopilotdevops/ansible
+sudo docker run -itd --name webserver2 autopilotdevops/ansible
 
-sudo docker run -itd --name container3 autopilotdevops/ansible
+sudo docker run -itd --name webserver3 autopilotdevops/ansible
+
+sudo docker run -itd --name dbserver1 autopilotdevops/ansible
+
+sudo docker run -itd --name dbserver2 autopilotdevops/ansible
 
 sudo systemctl enable docker
 
@@ -61,7 +65,7 @@ do
 
 IP=`sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $line`
 
-sudo echo "webserver${count} ansible_connection=ssh ansible_user=root ansible_password=Devops ansible_host=$IP" >> /root/inventory.txt
+sudo echo "server${count} ansible_connection=ssh ansible_user=root ansible_password=Devops ansible_host=$IP" >> /root/inventory.txt
 
 count=$((count + 1))
 
