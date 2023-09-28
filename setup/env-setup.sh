@@ -32,7 +32,7 @@ then
 
 else
 
-        sudo mkdir /etc/ansible/
+        sudo mkdir -p /etc/ansible/
 
         sudo touch /etc/ansible/ansible.cfg
 
