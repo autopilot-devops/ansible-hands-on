@@ -7,5 +7,5 @@ git clone https://github.com/autopilot-devops/ansible-hands-on.git
 Navigate to setup directory
 chmod 700 env-setup.sh
 ./env-setup.sh
-cd /home/ec2-user
-ls -l /home/ec2-user
+cd /root
+ls -l
