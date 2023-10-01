@@ -8,3 +8,5 @@ Setup Environment Steps for amazon linux os:
 4. Navigate to setup directory
 5. chmod 700 env-setup.sh
 6. ./env-setup.sh
+7. cd /root
+8. ls -l /root/
