@@ -71,5 +71,6 @@ count=$((count + 1))
 
 done
 
+sudo yum remove git
 sudo cd /root
 sudo cat /root/inventory.txt
