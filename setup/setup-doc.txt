@@ -8,4 +8,4 @@ Navigate to setup directory
 chmod 700 env-setup.sh
 ./env-setup.sh
 cd /root
-ls -l
+ls -l /root/
