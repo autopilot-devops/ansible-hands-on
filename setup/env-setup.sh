@@ -65,12 +65,12 @@ do
 
 IP=`sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $line`
 
-sudo echo "server${count} ansible_connection=ssh ansible_user=root ansible_password=Devops ansible_host=$IP" >> /home/ec2-user/inventory.txt
+sudo echo "server${count} ansible_connection=ssh ansible_user=root ansible_password=Devops ansible_host=$IP" >> /root/inventory.txt
 
 count=$((count + 1))
 
 done
 
 sudo yum remove git
-sudo cd /home/ec2-user
-sudo cat /home/ec2-user/inventory.txt
+sudo cd /root
+sudo cat /root/inventory.txt
