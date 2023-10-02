@@ -1,0 +1,9 @@
+#Use Below command to ping all the Servers in the /root/inventory
+#ansible -m ping all -i /root/inventory
+#Playbook Solution Below
+---
+- name: Ping all servers
+  hosts: all
+  tasks:
+    - name: Ping
+      ping:
