@@ -44,15 +44,15 @@ fi
 
 sudo docker pull autopilotdevops/ansible
 
-sudo docker run -itd --name webserver1 autopilotdevops/ansible
+sudo docker run --cpus 0.1 -itd --name webserver1 autopilotdevops/ansible
 
-sudo docker run -itd --name webserver2 autopilotdevops/ansible
+sudo docker run --cpus 0.1 -itd --name webserver2 autopilotdevops/ansible
 
-sudo docker run -itd --name webserver3 autopilotdevops/ansible
+sudo docker run --cpus 0.1 -itd --name webserver3 autopilotdevops/ansible
 
-sudo docker run -itd --name dbserver1 autopilotdevops/ansible
+sudo docker run --cpus 0.1 -itd --name dbserver1 autopilotdevops/ansible
 
-sudo docker run -itd --name dbserver2 autopilotdevops/ansible
+sudo docker run --cpus 0.1 -itd --name dbserver2 autopilotdevops/ansible
 
 sudo systemctl enable docker
 
@@ -65,12 +65,12 @@ do
 
 IP=`sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $line`
 
-sudo echo "server${count} ansible_connection=ssh ansible_user=root ansible_password=Devops ansible_host=$IP" >> /root/inventory.txt
+sudo echo "server${count} ansible_connection=ssh ansible_user=root ansible_password=Devops ansible_host=$IP" >> /root/inventory
 
 count=$((count + 1))
 
 done
 
-sudo yum remove git
+sudo yum -y remove git
 sudo cd /root
-sudo cat /root/inventory.txt
+sudo cat /root/inventory
