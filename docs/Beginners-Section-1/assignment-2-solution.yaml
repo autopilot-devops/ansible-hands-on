@@ -1,0 +1,14 @@
+---
+- name: Ping all servers and print output in YAML
+  hosts: all
+  tasks:
+    - name: Ping and print output
+      ping:
+      register: ping_result
+
+    - name: Print ping output
+      debug:
+        var: ping_result
+
+#Command to execute above playbook
+#ansible-playbook assignment-2-solution.yaml -i /root/inventory

@@ -9,4 +9,4 @@
       ping:
 
 #Command to execute above playbook
-#ansible-playbook 1.yaml -i /root/inventory
+#ansible-playbook assignment-1-solution.yaml -i /root/inventory
