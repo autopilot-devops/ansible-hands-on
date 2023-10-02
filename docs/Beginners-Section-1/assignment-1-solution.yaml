@@ -7,3 +7,6 @@
   tasks:
     - name: Ping
       ping:
+
+#Command to execute above playbook
+#ansible-playbook 1.yaml -i /root/inventory
