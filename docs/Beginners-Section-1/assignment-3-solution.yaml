@@ -1,0 +1,5 @@
+#Command to move inventory file to default location:
+#sudo mv /root/inventory /etc/ansible/hosts
+
+#Command to test the inventory placement is correct or not
+#ansible -m ping all
