@@ -1,0 +1,11 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-10-solution.yaml
+
+---
+- name: Manage Git repositories on remote servers
+  hosts: db
+  tasks:
+    - name: Clone repository from GitHub
+      git:
+        repo: https://github.com/autopilot-devops/ansible-hands-on.git
+        dest: /opt/myrepo

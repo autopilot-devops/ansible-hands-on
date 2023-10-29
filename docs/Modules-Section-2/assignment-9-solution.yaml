@@ -1,0 +1,11 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-9-solution.yaml
+
+---
+- name: Manage packages on remote servers
+  hosts: db
+  tasks:
+    - name: Ensure git package is installed
+      package:
+        name: git
+        state: present

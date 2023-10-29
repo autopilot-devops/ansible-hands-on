@@ -1,0 +1,12 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-8-solution.yaml
+
+---
+- name: Manage services on remote servers
+  hosts: webserver
+  tasks:
+    - name: Ensure httpd service is started and enabled
+      service:
+        name: httpd
+        state: started
+        enabled: yes

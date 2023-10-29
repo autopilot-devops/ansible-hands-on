@@ -1,0 +1,11 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-7-solution.yaml
+
+---
+- name: Manage file copies on remote servers
+  hosts: webserver
+  tasks:
+    - name: Copy file to remote server
+      copy:
+        src: /path/to/local/app_config.conf
+        dest: /etc/app_config.conf
