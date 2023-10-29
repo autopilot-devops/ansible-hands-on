@@ -2,7 +2,7 @@
 - name: Ping all servers and print output in YAML
   hosts: all
   tasks:
-    - name: Ping and print output
+    - name: Ping and capture output
       ping:
       register: ping_result
 
