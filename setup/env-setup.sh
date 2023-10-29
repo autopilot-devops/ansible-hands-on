@@ -44,15 +44,12 @@ fi
 
 sudo docker pull autopilotdevops/ansible
 
-sudo docker run --cpus 0.1 -itd --name webserver1 autopilotdevops/ansible
+sudo docker run --cpus 0.1 -itd --name server1 autopilotdevops/ansible
 
-sudo docker run --cpus 0.1 -itd --name webserver2 autopilotdevops/ansible
+sudo docker run --cpus 0.1 -itd --name server2 autopilotdevops/ansible
 
-sudo docker run --cpus 0.1 -itd --name webserver3 autopilotdevops/ansible
+sudo docker run --cpus 0.1 -itd --name server3 autopilotdevops/ansible
 
-sudo docker run --cpus 0.1 -itd --name dbserver1 autopilotdevops/ansible
-
-sudo docker run --cpus 0.1 -itd --name dbserver2 autopilotdevops/ansible
 
 sudo systemctl enable docker
 
