@@ -1,2 +1,0 @@
-#below command will only ping webserver group servers only
-#ansible webserver -m ping

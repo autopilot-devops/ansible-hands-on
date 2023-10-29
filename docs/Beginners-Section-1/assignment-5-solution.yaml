@@ -1,0 +1,10 @@
+#Run below command to execute the playbook
+#ansible-playbook assignment-5-solution.yaml
+#Playbook Below
+---
+- name: Print hostname of servers in the db group
+  hosts: db
+  tasks:
+    - name: Print hostname
+      debug:
+        msg: "Hostname of the server is {{ ansible_hostname }}"
