@@ -1,0 +1,10 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-20-solution.yaml
+
+---
+- name: Flexible Configuration Management
+  hosts: "{{ target_host | default('localhost') }}"
+  tasks:
+    - name: Configure System
+      debug:
+        msg: echo "Configuring system for host {{ target_host }}"

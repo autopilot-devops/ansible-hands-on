@@ -1,0 +1,21 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-18-solution.yaml
+
+---
+- name: Dynamic Configuration
+  hosts: webserver
+  vars_prompt:
+    - name: server_ip
+      prompt: "Enter server IP:"
+    - name: db_username
+      prompt: "Enter database username:"
+    - name: db_password
+      prompt: "Enter database password:"
+  tasks:
+    - name: Configure Application
+      shell: echo "Configuring with IP {{ server_ip }}, username {{ db_username }}, and password {{ db_password }}"
+      register: result
+
+    - name: Display Output
+      debug:
+        var: result.stdout

@@ -1,0 +1,17 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-22-solution.yaml
+
+- name: Conditional tasks demonstration
+  hosts: localhost
+  gather_facts: false
+  vars:
+    is_production: true
+  tasks:
+    - name: Print if production environment
+      debug:
+        msg: "This is a production environment"
+      when: is_production
+    - name: Print if not production environment
+      debug:
+        msg: "This is not a production environment"
+      when: not is_production

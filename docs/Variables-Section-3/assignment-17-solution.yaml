@@ -1,0 +1,17 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-17-solution.yaml
+
+---
+- name: Configure Web Servers
+  hosts: webserver
+  vars:
+    nginx_port: 80
+    server_name: example.com
+    document_root: /var/www/html
+  tasks:
+    - name: Install Nginx
+      shell: echo "Installing Nginx on port {{ nginx_port }} for {{ server_name }}"
+      register: result
+    - name: Display Output
+      debug:
+        var: result.stdout

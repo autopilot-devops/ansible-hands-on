@@ -1,0 +1,12 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-19-solution.yaml
+
+---
+- name: Secure Configuration Management
+  hosts: webserver
+  vars_files:
+    - sensitive_vars.yml
+  tasks:
+    - name: Configure System
+      debug:
+        msg: "Configuring system using sensitive data from file. Username: {{ db_username }}, API Key: {{ api_key }}"

@@ -1,0 +1,13 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-21-solution.yaml
+
+- name: Variable Precedence Demonstration
+  hosts: server2
+  vars:
+    var1: "Global variable"
+  tasks:
+    - name: Display Variable
+      debug:
+        msg: "{{ var1 }}"
+      vars:
+        var1: "Local variable"
