@@ -2,7 +2,7 @@
 #ansible-playbook assignment-22-solution.yaml
 
 - name: Conditional tasks demonstration
-  hosts: localhost
+  hosts: server1
   gather_facts: false
   vars:
     is_production: true

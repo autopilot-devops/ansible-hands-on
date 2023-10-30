@@ -1,13 +1,33 @@
 #Run below command to trigger the ansible playbook
-#ansible-playbook assignment-21-solution.yaml
+#ansible-playbook assignment-23-solution.yaml
 
-- name: Variable Precedence Demonstration
-  hosts: server2
-  vars:
-    var1: "Global variable"
+- name: Conditional tasks based on ansible_facts
+  hosts: your_host
+  gather_facts: yes
+
   tasks:
-    - name: Display Variable
+    - name: Display operating system information
       debug:
-        msg: "{{ var1 }}"
-      vars:
-        var1: "Local variable"
+        msg: "Operating system is {{ ansible_facts['ansible_distribution'] }}"
+
+    - name: Install apache2 on Ubuntu
+      apt:
+        name: apache2
+        state: present
+      when: ansible_facts['ansible_distribution'] == 'Ubuntu'
+
+    - name: Install httpd on CentOS
+      yum:
+        name: httpd
+        state: present
+      when: ansible_facts['ansible_distribution'] == 'CentOS'
+
+    - name: Print successful installation message
+      debug:
+        msg: "Package installed successfully on {{ ansible_facts['ansible_distribution'] }}"
+      when: ansible_facts['ansible_distribution'] in ['Ubuntu', 'CentOS']
+
+    - name: Handle other operating systems
+      debug:
+        msg: "Package installation not supported on this operating system."
+      when: ansible_facts['ansible_distribution'] not in ['Ubuntu', 'CentOS']
