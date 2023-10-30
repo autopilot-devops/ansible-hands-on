@@ -1,0 +1,9 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-15-solution.yaml
+
+---
+- name: Execute shell commands on remote servers
+  hosts: all
+  tasks:
+    - name: Display disk usage information
+      shell: df -h

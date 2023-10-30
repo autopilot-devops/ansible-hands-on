@@ -1,0 +1,11 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-16-solution.yaml
+
+---
+- name: Retrieve files from remote servers
+  hosts: server1
+  tasks:
+    - name: Fetch log file
+      fetch:
+        src: /var/log/syslog
+        dest: /tmp/

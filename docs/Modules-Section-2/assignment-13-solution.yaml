@@ -1,0 +1,10 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-13-solution.yaml
+
+---
+- name: Print debug message during playbook execution
+  hosts: all
+  tasks:
+    - name: Print debug message
+      debug:
+        msg: "Playbook execution in progress"

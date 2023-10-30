@@ -1,0 +1,12 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-12-solution.yaml
+
+---
+- hosts: server3
+  tasks:
+    - name: Add cron job to echo "Hello World"
+      cron:
+        name: "hello_world_cron_job"
+        minute: "*"
+        hour: "*"
+        job: "echo 'Hello World'"
