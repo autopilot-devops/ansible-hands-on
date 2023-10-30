@@ -1,13 +1,18 @@
 #Run below command to trigger the ansible playbook
-#ansible-playbook assignment-21-solution.yaml
+#ansible-playbook assignment-24-solution.yaml
 
-- name: Variable Precedence Demonstration
-  hosts: server2
+- name: Conditional tasks with loops
+  hosts: localhost
+  gather_facts: false
   vars:
-    var1: "Global variable"
+    servers:
+      - webserver-prod-01
+      - appserver-dev-01
+      - dbserver-prod-02
+
   tasks:
-    - name: Display Variable
+    - name: Print server type
       debug:
-        msg: "{{ var1 }}"
-      vars:
-        var1: "Local variable"
+        msg: "Server {{ item }} is a production server."
+      when: "'prod' in item"
+      with_items: "{{ servers }}"
