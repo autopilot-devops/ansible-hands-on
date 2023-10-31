@@ -1,13 +1,17 @@
 #Run below command to trigger the ansible playbook
-#ansible-playbook assignment-21-solution.yaml
+#ansible-playbook assignment-25-solution.yaml
 
-- name: Variable Precedence Demonstration
-  hosts: server2
-  vars:
-    var1: "Global variable"
+- name: Execute command with failed_when condition
+  hosts: localhost
+
   tasks:
-    - name: Display Variable
+    - name: Run command with failed_when
+      command: ls /nonexistent_directory
+      register: command_output
+      failed_when: "'No such file or directory' not in command_output.stderr"
+      ignore_errors: true
+
+    - name: Print failure message
       debug:
-        msg: "{{ var1 }}"
-      vars:
-        var1: "Local variable"
+        msg: "Failed to list directory. Error: {{ command_output.stderr }}"
+      when: command_output|failed

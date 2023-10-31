@@ -1,0 +1,5 @@
+# configure_service.yml
+
+- name: Debug message for service configuration
+  debug:
+    msg: "Configuring the service."

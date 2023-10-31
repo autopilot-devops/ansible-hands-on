@@ -1,0 +1,5 @@
+# install_packages.yml
+
+- name: Debug message for package installation
+  debug:
+    msg: "Installing necessary packages."

@@ -1,13 +1,13 @@
 #Run below command to trigger the ansible playbook
-#ansible-playbook assignment-21-solution.yaml
+#ansible-playbook assignment-26-solution.yaml
 
-- name: Variable Precedence Demonstration
-  hosts: server2
+- name: Import tasks with when condition
+  hosts: localhost
+  gather_facts: false
   vars:
-    var1: "Global variable"
-  tasks:
-    - name: Display Variable
-      debug:
-        msg: "{{ var1 }}"
-      vars:
-        var1: "Local variable"
+    enable_configuration: true
+
+- import_tasks: tasks/install_packages.yml
+
+- import_tasks: tasks/configure_service.yml
+  when: enable_configuration
