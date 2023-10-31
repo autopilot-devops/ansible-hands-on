@@ -1,0 +1,13 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-27-solution.yaml
+
+- name: Gathering system facts
+  hosts: db
+  tasks:
+    - name: Gather facts
+      setup:
+      register: system_facts
+
+    - name: Print gathered facts
+      debug:
+        var: system_facts

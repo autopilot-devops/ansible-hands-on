@@ -1,0 +1,15 @@
+#Run below command to trigger the ansible playbook
+#ansible-playbook assignment-28-solution.yaml
+
+- name: Advanced configuration management
+  hosts: webserver
+  tasks:
+    - name: Gathering system facts
+      setup:
+      register: system_facts
+
+    - name: Processing CPU usage
+      debug:
+        msg: "Host {{ item.ansible_facts['ansible_hostname'] }} has high CPU usage."
+      when: item.ansible_facts['ansible_processor_vcpus'] > 4
+      with_items: "{{ system_facts.results }}"
